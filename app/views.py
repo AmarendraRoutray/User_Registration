@@ -3,6 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from .forms import *
 from django.http import HttpResponse
+from django.core.mail import send_mail
 
 def registration(request):
     UFO=Userform()
@@ -11,7 +12,7 @@ def registration(request):
     
     if request.method=='POST' and request.FILES:    # request.FILES used for taking images/files submitted by user through frontend
         ufd=Userform(request.POST)
-        pfd=ProfileForm(request.POST,request.FILES)    # here ProfileForm taking two arg because there is ImageField in Profile
+        pfd=ProfileForm(request.POST,request.FILES)    # here ProfileForm taking two arg because there is ImageField in Profile model/form
         
         if ufd.is_valid() and pfd.is_valid():
             MUFDO=ufd.save(commit=False)        # for modification in data
@@ -22,6 +23,13 @@ def registration(request):
             MPFDO=pfd.save(commit=False)        
             MPFDO.username=MUFDO                # in profile model we have 3 col but in profile form we have 2 inputField, to avoid error i am giving user obj for username col
             MPFDO.save()
+            
+            send_mail('Registration',
+                      'Thank you for registering in MyEra',
+                      'amarendraroutray6@gmail.com',
+                      [MUFDO.email],
+                      fail_silently=True
+                      )
             
             return HttpResponse('Registration Successfull')
         else:
