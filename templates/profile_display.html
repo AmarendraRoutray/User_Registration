@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<!--Table Format-->
+
+<!-- <table class="table table-success table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Profile Pic</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ UO.username }}</td>
+                <td>{{ UO.email }}</td>
+                <td>{{ PO.address }}</td>
+                <td><img src="{{ PO.profile_pic.url }}" width="50px" height="50px"></td>
+            </tr>
+        </tbody>
+    </table> -->
+
+<!--Card Format-->
+<div class="position-absolute top-50 start-50 translate-middle">
+    <div class="card" style="width: 18rem;">
+        <img src="{{ PO.profile_pic.url }}" class="card-img-top" alt="..." height="250px">
+        <div class="card-body">
+            <h5 class="card-title">Your Profile Details</h5>
+            <p class="card-text">Username : <strong>{{ UO.username }}</strong></p>
+            <p class="card-text">Email : <strong>{{ UO.email }}</strong></p>
+            <p class="card-text">Address : <strong>{{ PO.address }}</strong></p>
+
+            <a href="#" class="btn btn-primary btn-sm">Edit</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
