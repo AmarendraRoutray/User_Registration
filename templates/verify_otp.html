@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container col-4 mt-5">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <input type="text" name="otp" id="otp" class="form-control" placeholder="Enter OTP">
+        </div>
+        <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+    </form>
+</div>
+{% endblock %}

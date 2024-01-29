@@ -6,17 +6,16 @@
 
 {% block body %}
 <h2 style="text-align: center; margin-top: 15px;">Register Here</h2>
-<div class="container-md mt-5">
+<div class="container-md mt-4">
     <div class="row justify-content-center">
         <div class="col-md-4">
-            <form method="POST" enctype="multipart/form-data">
+            
+            <form method="POST" enctype="multipart/form-data" class="border p-5 rounded">
                 {% csrf_token %}
-
                 {% if messages %}
                 <div class="container mt-4">
                     {% for message in messages %}
-                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} alert-dismissible fade show"
-                        role="alert">
+                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
                         {{ message }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>

@@ -28,4 +28,8 @@ urlpatterns = [
     path('user_login/',user_login,name='user_login'),
     path('user_logout/',user_logout,name='user_logout'),
     path('profile_display/',profile_display,name='profile_display'),
+    path('change_password/',change_password,name='change_password'),
+    path('forgot_password/',forgot_password,name='forgot_password'),
+    path('verify_otp/',verify_otp,name='verify_otp'),
+    
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

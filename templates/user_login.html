@@ -5,14 +5,15 @@
 {% endblock %}
 
 {% block body %}
-<div class="container col-4 mt-3">
-    <form action="" method="POST">
+<div class="container col-4 mt-5">
+    <form method="POST" class="border p-4 rounded-3">
         {% csrf_token %}
-        <label for="un" class="form-label">Username</label>
-        <input type="text" name="un" id="un" class="form-control">
-        <label for="pw" class="form-label">Password</label>
-        <input type="password" name="pw" id="pw" class="form-control"><br>
-        <input type="submit" value="Login" class="btn btn-primary">
+        <h3>Login Here</h3>
+        <input type="text" name="un" id="un" class="form-control mb-4 mt-4" placeholder="username">
+        
+        <input type="password" name="pw" id="pw" class="form-control mb-3" placeholder="Password">
+        <input type="submit" value="Login" class="btn btn-primary mb-3"><br>
+        <a href="{% url 'forgot_password' %}" class="link">Forgot Password?</a>
     </form>
 </div>
 {% endblock %}
